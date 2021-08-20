@@ -1,6 +1,7 @@
 const mysql = require("mysql2");
 const inquirer = require("inquirer");
 const conTable = require("console.table");
+const express = require('express');
 
 require('dotenv').config();
 
@@ -20,3 +21,7 @@ const db = mysql.createConnection(
   
     console.log(`Connected to the employees database.`)
 );
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });

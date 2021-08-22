@@ -1,3 +1,4 @@
+// use variables to require modules
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const figlet = require('figlet');
@@ -77,6 +78,7 @@ function employeeSearch() {
 	);
 };
 
+// salaries function
 function employeeSalaries() {
 	connection.query(
 		`SELECT 
@@ -92,6 +94,9 @@ function employeeSalaries() {
 		}
 	);
 };
+
+
+// department function
 
 function showDept() {
 	connection.query(
@@ -115,6 +120,7 @@ function showRoles() {
 	);
 };
 
+// used to update the employee role
 function updateRole() {
 	connection.query(
 		`SELECT
@@ -172,6 +178,7 @@ function updateRole() {
 
 };
 
+// add employee function
 function addOption() {
 	inquirer
 	.prompt([
@@ -199,6 +206,7 @@ function addOption() {
 	})
 };
 
+// add department function
 function addDepartment() {
 	inquirer
 	.prompt([
@@ -219,6 +227,8 @@ function addDepartment() {
 		)
 	})
 };
+
+// add role function
 function addRole() {
 	connection.query(
 		`SELECT * FROM department ORDER BY id`,
@@ -265,6 +275,7 @@ function addRole() {
 	}, 1000);
 };
 
+// add employee function
 function addEmployee() {
 	inquirer
 	.prompt([
@@ -308,6 +319,7 @@ function addEmployee() {
 	})
 };
 
+// title block found FIGlet to make it work
 connection.connect((err) => {
 	if (err) throw err;
 	console.log('----------------------------------------------------------------------------------');

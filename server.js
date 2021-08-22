@@ -9,7 +9,8 @@ const connection = mysql.createConnection({
 	port: 3306,
 	user: "root",
 	password: "password",
-	database: "employee_db",
+	database: "employee_db"
+
 });
 
 // use inquirer to setup questions
@@ -160,9 +161,7 @@ function updateRole() {
 						id: res.updateID
 					}
 				],	
-				// `UPDATE employee
-				// SET role_id = ${res.roleID} 
-				// WHERE id = ${res.updateID} `,
+			
 				(err, res) => {
 					if (err) throw err;
 					console.log("Role Updated");
@@ -255,8 +254,7 @@ function addRole() {
 					salary: res.salary,
 					department_id: res.deptId
 				},
-				// `INSERT INTO roles (title, salary, department_id)
-				// VALUES ('${res.role}', ${res.salary}, ${res.deptId})`,
+			
 				(err, res) => {
 					if (err) throw err;
 					console.table('Role Added.');

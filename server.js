@@ -1,28 +1,18 @@
-const mysql = require("mysql2");
-const inquirer = require("inquirer");
-const conTable = require("console.table");
-const express = require('express');
+const inquirer = require('inquirer');
+const mysql = require('mysql');
+const figlet = require('figlet');
+const cTable = require('console.table');
 
-require('dotenv').config();
 
-const PORT = process.env.PORT || 3001;
-const app = express();
+const connection = mysql.createConnection({
+	host: "localhost",
+	port: 3306,
+	user: "root",
+	password: "pa$$word",
+	database: "employee_db",
 
-// Express middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
-// Connect to database
-const db = mysql.createConnection(
-    process.env.HOST,
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
-
-    console.log(`Connected to the employees database.`)
-);
-
-function init() {
+function init() ,{
     inquirer
         .prompt({
             name: 'choice',
